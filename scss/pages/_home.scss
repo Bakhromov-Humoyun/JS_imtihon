@@ -1,0 +1,489 @@
+@use "../utils/variables" as var;
+@use "../layout/flex" as flx;
+@use "../utils/font" as font;
+
+.section_1 {
+  margin-top: 100px;
+  background-image: url(../../images/section_back.png);
+  background-color: var.$bg-white;
+  .dostavka {
+    @include flx.flex(center, center, 18);
+    h1 {
+      font-weight: 700;
+      font-size: 48px;
+      line-height: 150%;
+      letter-spacing: 0%;
+      text-align: center;
+      color: var.$bg-dark;
+      @media (max-width: 768px) {
+        font-size: 20px;
+      }
+      @media (max-width: 576px) {
+        font-size: 18px;
+        padding: 27px 0;
+      }
+    }
+    img {
+      @media (max-width: 576px) {
+        display: none;
+      }
+    }
+  }
+}
+.sells {
+  margin-top: 64px;
+  .sell {
+    display: flex;
+    @include flx.flex(center, space-between, 0);
+    h2 {
+      font-weight: 700;
+      font-size: 42px;
+      line-height: 150%;
+      color: var.$text-grey;
+    }
+    .next_page {
+      @include flx.flex(center, no, 20);
+      transition: 1s;
+      &:hover {
+        border: 1px solid #8f8f8f;
+        padding: 8px;
+      }
+    }
+  }
+  .sell_cards {
+    @include flx.flex(center, space-between, 40);
+    margin-top: 40px;
+    flex-wrap: wrap;
+    @media (max-width: 1034px) {
+      justify-content: center;
+    }
+
+    .sell_card {
+      transition: 1s;
+      &:hover {
+        transform: scale(1.1);
+      }
+      position: relative;
+      background-color: var.$bg-white;
+      box-shadow: 1px 2px 4px 0px #0000001a;
+      border-radius: 4px;
+      padding: 8px;
+      .sale {
+        color: var.$bg-white;
+        background-color: var.$orange-color;
+        padding: 4px 8px;
+        border-radius: 4px;
+        width: 52px;
+        position: absolute;
+        top: 130px;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+        letter-spacing: 0%;
+      }
+      .card_header {
+        .card_inofrm {
+          @include flx.flex(center, space-between, 0);
+          .card_inform--to {
+            h5 {
+              font-family: Rubik;
+              font-weight: 700;
+              font-size: 18px;
+              line-height: 150%;
+              color: var.$text-grey;
+            }
+            p {
+              font-family: Rubik;
+              font-weight: 400;
+              font-size: 15px;
+              line-height: 150%;
+              color: var.$bg-grey;
+              letter-spacing: 0%;
+            }
+          }
+          .card_inform_for {
+            h5 {
+              font-family: Rubik;
+              font-weight: 400;
+              font-size: 18px;
+              line-height: 150%;
+              letter-spacing: 0%;
+              color: var.$bg-grey;
+            }
+            p {
+              font-family: Rubik;
+              font-weight: 400;
+              font-size: 15px;
+              line-height: 150%;
+              color: var.$bg-grey;
+              letter-spacing: 0%;
+            }
+          }
+        }
+        h4 {
+          font-family: Rubik;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 150%;
+          letter-spacing: 0%;
+          color: var.$text-grey;
+          padding: 8px 0;
+        }
+      }
+      .card_footer {
+        .greatly {
+          display: flex;
+          align-items: center;
+          padding: 8px 0;
+        }
+        .btn_1 {
+          padding: 8px 0;
+          border: 1px solid var.$bg-green;
+          text-align: center;
+          transition: 1s;
+          border-radius: 4px;
+          a {
+            color: var.$bg-green;
+            transition: 1s;
+          }
+          &:hover {
+            background-color: var.$orange-color;
+            border: none;
+            a {
+              color: var.$bg-white;
+            }
+          }
+        }
+      }
+      .like_card {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        opacity: 0; // Default holatda yashirin
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        transform: scale(0.8);
+      }
+
+      &:hover .like_card {
+        opacity: 1; // Hover bo‘lganda ko‘rinadi
+        transform: scale(1); // Biroz kattalashib chiqadi
+      }
+      .heart-icon {
+        transition: opacity 0.3s ease-in-out;
+      }
+
+      &.active .heart-icon {
+        content: url("../../images/lik3e.svg"); // Yurak to‘liq qizilga almashtiriladi
+      }
+    }
+  }
+}
+.advertasemant {
+  margin-top: 124px;
+  h2 {
+    font-family: Rubik;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    color: var.$text-grey;
+  }
+  .advert_cards {
+    margin-top: 40px;
+    @include flx.flex(center, no, 40);
+
+    .advert_1 {
+      background-color: var.$card-orange;
+      @include flx.flex(center, no, 40);
+      padding: 30px 31px 0 40px;
+      border-radius: 4px;
+      box-shadow: 0px 8px 16px 0px #ca936080;
+
+      .card_text {
+        h2 {
+          font-weight: 700;
+          font-size: 24px;
+          line-height: 150%;
+          letter-spacing: 0%;
+          color: var.$bg-dark;
+          margin-bottom: 10px;
+        }
+        p {
+          font-family: Rubik;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 150%;
+          letter-spacing: 0%;
+          color: var.$text-grey;
+        }
+      }
+
+      @media (max-width: 680px) {
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      @media (max-width: 425px) {
+        padding: 40px;
+      }
+    }
+    @media (max-width: 1080px) {
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+}
+/* Variables */
+:root {
+  --background-color: #f8f5f0;
+  --title-color: #333;
+  --active-tab-color: #7ab55c;
+  --inactive-tab-color: #f0f0f0;
+  --border-radius: 4px;
+}
+
+/* Reset */
+
+.content_map {
+  padding-bottom: 120px;
+  h1 {
+    margin: 120px 0 40px;
+    color: var.$text-grey;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    text-align: start;
+  }
+  title {
+    color: var(--title-color);
+    font-size: 32px;
+    margin-bottom: 30px;
+    font-weight: 700;
+  }
+
+  /* Tabs */
+  .tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  .tab-btn {
+    padding: 10px 20px;
+    background-color: var(--inactive-tab-color);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+
+  .tab-btn:hover {
+    background-color: #e5e5e5;
+  }
+
+  .tab-btn.active {
+    background-color: var(--active-tab-color);
+    color: white;
+  }
+
+  /* Map */
+  .map-container {
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    margin-top: 20px;
+    position: relative;
+  }
+
+  .map-view {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    display: none;
+    .map-container {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 450px;
+      border: none;
+    }
+  }
+
+  .map-view.active {
+    opacity: 1;
+    display: block;
+  }
+
+  .map-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .marker {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #ff4136;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .marker::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Store info */
+  .store-info {
+    background-color: white;
+    padding: 15px;
+    border-radius: var(--border-radius);
+    margin-top: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: none;
+  }
+
+  .store-info.active {
+    display: block;
+  }
+
+  .store-info h3 {
+    margin-bottom: 10px;
+    color: var(--title-color);
+  }
+
+  .store-info p {
+    margin-bottom: 5px;
+    color: #666;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .title {
+      font-size: 24px;
+    }
+
+    .tabs {
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .tab-btn {
+      width: 100%;
+      text-align: center;
+    }
+
+    .map-container {
+      height: 300px;
+    }
+  }
+}
+
+.content_text_stat {
+  .sell {
+    display: flex;
+    @include flx.flex(center, space-between, 0);
+    h2 {
+      font-weight: 700;
+      font-size: 42px;
+      line-height: 150%;
+      color: var.$text-grey;
+    }
+    .next_page {
+      @include flx.flex(center, no, 20);
+      transition: 1s;
+      &:hover {
+        border: 1px solid #8f8f8f;
+        padding: 8px;
+      }
+    }
+  }
+  .cards_status {
+    padding: 40px 0 80px;
+    @include flx.flex(center, center, 40);
+    flex-wrap: wrap;
+    .card_stat {
+      transition: 1s;
+      &:hover {
+        transform: scale(1.1);
+      }
+      img {
+        width: 100%;
+      }
+      background-color: var.$bg-white;
+      .card_texts {
+        padding: 10px;
+        p {
+          padding: 10px 0;
+          font-weight: 400;
+          font-size: 15px;
+          line-height: 150%;
+          color: var.$text-grey;
+        }
+        h3 {
+          font-family: Rubik;
+          font-weight: 700;
+          font-size: 18px;
+          line-height: 150%;
+          letter-spacing: 0%;
+          color: var.$text-grey;
+        }
+        .card_footer {
+          p {
+            font-family: Rubik;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 150%;
+            letter-spacing: 0%;
+            color: var.$text-grey;
+          }
+          .btn_2 {
+            padding: 10px 0;
+            a {
+              font-family: Rubik;
+              font-weight: 400;
+              font-size: 16px;
+              line-height: 150%;
+              letter-spacing: 0%;
+              text-align: center;
+              vertical-align: middle;
+              color: var.$bg-green;
+              padding: 8px 10px;
+              background-color: var.$bg-lightgreen;
+              border-radius: 4px;
+              transition: 1s;
+              &:hover {
+                color: var.$bg-white;
+                background-color: var.$bg-green;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

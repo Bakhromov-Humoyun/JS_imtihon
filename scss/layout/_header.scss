@@ -1,0 +1,169 @@
+@use "../utils/variables" as var;
+@use "../layout/flex" as flx;
+@use "../utils/font" as font;
+
+header {
+  z-index: 9999;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: var.$bg-white;
+  box-shadow: 2px 4px 8px 0px #0000001a;
+
+  nav {
+    .nav_items {
+      @include flx.flex(center, space-between, 40);
+      padding: 20px 0;
+
+      .nav_item {
+        @include flx.flex(center, no, 40);
+        .nav_brend {
+          @include flx.flex(center, inline, 10);
+          h4 {
+            color: var.$text-grey;
+            @media (max-width: 1078px) {
+              display: none;
+            }
+          }
+        }
+        .nav_next_tag {
+          @include flx.flex(center, no, 40);
+
+          .catolog {
+            @include flx.flex(center, no, 16);
+            background-color: var.$bg-green;
+            padding: 8px;
+            border-radius: 4px;
+            transition: 1s;
+            &:hover {
+              background-color: var.$orange-color;
+            }
+            p {
+              color: var.$bg-white;
+              @media (max-width: 810px) {
+                display: none;
+              }
+            }
+            @media (max-width: 778px) {
+              display: none;
+            }
+          }
+          .input {
+            display: flex;
+            align-items: center;
+            position: relative;
+
+            input {
+              width: 100%;
+              max-width: 600px;
+              padding: 12px 25px 12px 15px;
+              font-size: clamp(14px, 2vw, 18px);
+              border: 1px solid var.$bg-green;
+              border-radius: 8px;
+              box-sizing: border-box;
+            }
+            img {
+              position: absolute;
+              top: 10px;
+              right: 10px;
+            }
+            @media (max-width: 778px) {
+              max-width: 900px;
+            }
+          }
+        }
+        @media (max-width: 778px) {
+          justify-content: space-between;
+        }
+      }
+      .header_last {
+        @include flx.flex(center, center, 40);
+        .nav_menu {
+          @include flx.flex(center, center, 24);
+          .menu_name {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 8px;
+            img {
+              width: 24px;
+            }
+          }
+        }
+        .nav_people_about {
+          @include flx.flex(center, no, 10);
+          p {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 150%;
+            letter-spacing: 0%;
+            vertical-align: middle;
+            color: var.$bg-dark;
+            @media (max-width: 890px) {
+              display: none;
+            }
+          }
+        }
+        @media (max-width: 778px) {
+          display: none;
+        }
+      }
+      .nav_people_about {
+        @include flx.flex(center, no, 10);
+        p {
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 150%;
+          letter-spacing: 0%;
+          vertical-align: middle;
+          color: var.$bg-dark;
+          @media (max-width: 890px) {
+            display: none;
+          }
+        }
+      }
+      @media (max-width: 778px) {
+        justify-content: center;
+      }
+    }
+  }
+}
+
+.last_mobile {
+  display: none;
+  box-shadow: 2px 4px 8px 0px #0000001a;
+  width: 100%;
+  padding: 8px 0;
+  background-color: var.$bg-white;
+  .logo {
+    @include flx.flex(center, center, 16);
+    text-align: center;
+    margin: 0 auto;
+
+    .catolog {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      img {
+        width: 24px;
+      }
+    }
+    .menu_name {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      img {
+        width: 24px;
+      }
+    }
+  }
+  @media (max-width: 778px) {
+    z-index: 9999;
+    display: block;
+    position: fixed;
+    bottom: 0;
+  }
+}

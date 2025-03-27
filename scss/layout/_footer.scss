@@ -1,0 +1,43 @@
+@use "../utils/variables" as var;
+@use "../layout/flex" as flx;
+@use "../utils/font" as font;
+
+.footer_content {
+  background-image: url(../../images/footer.png);
+  background-color: var.$footer-bg;
+  padding: 24px 0;
+  .footer_cont {
+    @include flx.flex(center, space-between, 0);
+    .footer_brends {
+      @include flx.flex(center, no, 40);
+      .content_a {
+        @include flx.flex(center, no, 40);
+        flex-wrap: wrap;
+      }
+      @media (max-width: 578px) {
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+    .footer_plat {
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+      .footer_about {
+        @include flx.flex(center, no, 20);
+        flex-wrap: wrap;
+        .platform {
+          @include flx.flex(center, no, 16);
+          flex-wrap: wrap;
+        }
+        .phone_num {
+          @include flx.flex(center, no, 8);
+        }
+      }
+      .des {
+        display: flex;
+        justify-content: end;
+      }
+    }
+  }
+}

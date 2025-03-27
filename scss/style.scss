@@ -1,0 +1,17 @@
+@use "./pages/catalog";
+@use "./pages/home";
+@use "./pages/Акции";
+@use "./pages/Заказы";
+@use "./pages/Избранное";
+@use "./pages/Корзина";
+@use "./pages/Новинки";
+@use "./pages/Покупали";
+@use "./pages/Статьи";
+@use "./base/reset";
+@use "./base/typography";
+@use "./layout/header";
+@use "./layout/footer";
+@use "./utils/font";
+@use "./utils/functions";
+@use "./utils/variables";
+@use "./components/fab";
