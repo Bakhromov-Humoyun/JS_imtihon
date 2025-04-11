@@ -9,8 +9,10 @@ header {
   top: 0;
   background-color: var.$bg-white;
   box-shadow: 2px 4px 8px 0px #0000001a;
+  margin-bottom: 500px;
 
   nav {
+    
     .nav_items {
       @include flx.flex(center, space-between, 40);
       padding: 20px 0;
