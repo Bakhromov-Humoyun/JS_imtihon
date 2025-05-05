@@ -3,7 +3,7 @@
 @use "../utils/font" as font;
 
 .section_1 {
-  margin-top: 100px;
+  margin-top: 93px;
   background-image: url(../../images/section_back.png);
   background-color: var.$bg-white;
   .dostavka {
@@ -51,15 +51,25 @@
     }
   }
   .sell_cards {
-    @include flx.flex(center, space-between, 40);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: space-between;
+    gap: 40px;
     margin-top: 40px;
     flex-wrap: wrap;
-    @media (max-width: 1034px) {
-      justify-content: center;
+    @media (max-width: 1280px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 973px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 635px) {
+      grid-template-columns: repeat(1, 1fr);
     }
 
     .sell_card {
       transition: 1s;
+      width: 277px;
       &:hover {
         transform: scale(1.1);
       }
@@ -68,6 +78,7 @@
       box-shadow: 1px 2px 4px 0px #0000001a;
       border-radius: 4px;
       padding: 8px;
+      margin: 0 auto;
       .sale {
         color: var.$bg-white;
         background-color: var.$orange-color;
@@ -424,7 +435,7 @@
   }
   .cards_status {
     padding: 40px 0 80px;
-    @include flx.flex(center, center, 40);
+    @include flx.flex(center, center, 30);
     flex-wrap: wrap;
     .card_stat {
       transition: 1s;

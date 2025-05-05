@@ -575,3 +575,70 @@ const products = [
     ],
   },
 ];
+// let product = [
+//   {
+//     id: 1,
+//     text: "Sut, pishloq, tuxum",
+//     img: "../img/katolog/egg.svg",
+//   },
+//   {
+//     id: 2,
+//     text: "Non",
+//     img: "../img/katolog/brend.svg",
+//   },
+//   {
+//     id: 3,
+//     text: "Meva va sabzavotlar",
+//     img: "../img/katolog/vagetables.svg",
+//   },
+//   {
+//     id: 4,
+//     text: "Meva va sabzavotlar",
+//     img: "../img/katolog/img (4).svg",
+//   },
+//   {
+//     id: 5,
+//     text: "ichimliklar",
+//     img: "../img/katolog/img (5).svg",
+//   },
+//   {
+//     id: 6,
+//     text: "Напитки",
+//     img: "../img/katolog/img (6).svg",
+//   },
+//   {
+//     id: 7,
+//     text: "Qandolat mahsulotlari",
+//     img: "../img/katolog/img (7).svg",
+//   },
+//   {
+//     id: 8,
+//     text: "choy kofe",
+//     img: "../img/katolog/img (8).svg",
+//   },
+//   {
+//     id: 9,
+//     text: "sabzavot va go'sht ",
+//     img: "../img/katolog/img (9).svg",
+//   },
+//   {
+//     id: 10,
+//     text: "hayvonlar",
+//     img: "../img/katolog/img (10).svg",
+//   },
+//   {
+//     id: 11,
+//     text: "baby",
+//     img: "../img/katolog/img (11).svg",
+//   },
+//   {
+//     id: 12,
+//     text: "kalbasa",
+//     img: "../img/katolog/img (12).svg",
+//   },
+//   {
+//     id: 13,
+//     text: "servises",
+//     img: "../img/katolog/img (13).svg",
+//   },
+// ];

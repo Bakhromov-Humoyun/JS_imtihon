@@ -1,5 +1,15 @@
 let sell_cards = document.querySelector(".sell_cards");
-function getCard() {
+let sell_cards2 = document.querySelector(".as");
+let as_1 = document.querySelector(".as-1");
+let as_2 = document.querySelector(".as-2");
+let as_3 = document.querySelector(".as-3");
+let as_4 = document.querySelector(".as-4");
+let as_5 = document.querySelector(".as-5");
+let as_6 = document.querySelector(".as-6");
+let as_7 = document.querySelector(".as-7");
+
+let sell_cards3 = document.querySelector(".ass");
+function getCard(product) {
   let Card = document.createElement("div");
   Card.className = "sell_card";
 
@@ -12,13 +22,13 @@ function getCard() {
 
   let CardSaleText = document.createElement("div");
   CardSaleText.className = "sale";
-  CardSaleText.innerText = "-50%";
+  CardSaleText.innerText = `-${product.discount}%`;
 
   let CardHeader = document.createElement("div");
   CardHeader.className = "card_header";
 
   let CardHeaderImg = document.createElement("img");
-  CardHeaderImg.src = "../images/card_1.png";
+  CardHeaderImg.src = product.images[0];
   CardHeaderImg.alt = "no Img ?";
 
   let CardHeaderInform = document.createElement("div");
@@ -28,7 +38,7 @@ function getCard() {
   Cardinformto.className = "card_inform--to";
 
   let CardinformtoH5 = document.createElement("h5");
-  CardinformtoH5.innerText = "50,50 ₽";
+  CardinformtoH5.innerText = product.price + " ₽";
 
   let CardinformtoP = document.createElement("p");
   CardinformtoP.innerText = "Обычная";
@@ -37,13 +47,13 @@ function getCard() {
   Cardinformfor.className = "card_inform_for";
 
   let CardinformforH5 = document.createElement("h5");
-  CardinformforH5.innerText = "44,50 ₽";
+  CardinformforH5.innerText = product.price + " ₽";
 
   let CardinformforP = document.createElement("p");
   CardinformforP.innerText = "Обычная";
 
   let CardHeaderH4 = document.createElement("h4");
-  CardHeaderH4.innerHTML = "Г/Ц Блинчики с мясом вес, <br /> Россия";
+  CardHeaderH4.innerHTML = product.name;
 
   let CardFooter = document.createElement("div");
   CardFooter.className = "card_footer";
@@ -51,25 +61,16 @@ function getCard() {
   let CardFooterGreat = document.createElement("div");
   CardFooterGreat.className = "greatly";
 
-  let CardFooterImg = document.createElement("img");
-  CardFooterImg.src = "../images/yorug_stra.png";
-  CardFooterImg.alt = "no Img ?";
+  let p = document.createElement("p");
+  p.innerText = product.description;
 
-  let CardFooterImg1 = document.createElement("img");
-  CardFooterImg1.src = "../images/yorug_stra.png";
-  CardFooterImg1.alt = "no Img ?";
-
-  let CardFooterImg2 = document.createElement("img");
-  CardFooterImg2.src = "../images/star.svg";
-  CardFooterImg2.alt = "no Img ?";
-
-  let CardFooterImg3 = document.createElement("img");
-  CardFooterImg3.src = "../images/star.svg";
-  CardFooterImg3.alt = "no Img ?";
-
-  let CardFooterImg4 = document.createElement("img");
-  CardFooterImg4.src = "../images/star.svg";
-  CardFooterImg4.alt = "no Img ?";
+  for (let i = 0; i < 5; i++) {
+    let star = document.createElement("img");
+    star.src =
+      i < product.rating ? "../images/yorug_stra.png" : "../images/star.svg";
+    star.alt = "no Img ?";
+    CardFooterGreat.append(star);
+  }
 
   let CardFooterBtn = document.createElement("div");
   CardFooterBtn.className = "btn_1";
@@ -78,31 +79,65 @@ function getCard() {
   CardFooterA.href = "./pages/Корзина.html";
   CardFooterA.innerText = "В корзину";
 
-  CardFooterGreat.append(
-    CardFooterImg,
-    CardFooterImg1,
-    CardFooterImg2,
-    CardFooterImg3,
-    CardFooterImg4
-  );
-  CardLike.append(CardLikeImg);
-  Card.append(CardLike);
-  Card.append(CardSaleText);
-  CardHeader.append(CardHeaderImg);
-  CardHeader.append(CardHeaderInform);
-  CardHeaderInform.append(Cardinformto);
-  Cardinformto.append(CardinformtoH5, CardinformtoP);
-  CardHeaderInform.append(Cardinformfor);
-  Cardinformfor.append(CardinformforH5, CardinformforP);
-  CardHeader.append(CardHeaderH4);
-  Card.append(CardHeader, CardFooter);
-  CardFooter.append(CardFooterGreat, CardFooterBtn);
   CardFooterBtn.append(CardFooterA);
-  sell_cards.append(Card);
+  CardFooter.append(p, CardFooterGreat, CardFooterBtn);
+  CardLike.append(CardLikeImg);
 
-  return sell_cards;
+  CardHeaderInform.append(Cardinformto, Cardinformfor);
+  Cardinformto.append(CardinformtoH5, CardinformtoP);
+  Cardinformfor.append(CardinformforH5, CardinformforP);
+  CardHeader.append(CardHeaderImg, CardHeaderH4, CardHeaderInform);
+
+  Card.append(CardSaleText, CardHeader, CardFooter, CardLike);
+
+  return Card;
 }
-getCard();
-getCard();
-getCard();
-getCard();
+products
+  .filter((el) => el.discount > 0)
+  .slice(-4)
+  .map((product) => {
+    let card = getCard(product);
+    sell_cards.append(card);
+  });
+
+products.slice(-4).map((product) => {
+  let card = getCard(product);
+  sell_cards2.append(card);
+});
+products.slice(4, 8).map((product) => {
+  let card = getCard(product);
+  as_1.append(card);
+});
+products.slice(12, 16).map((product) => {
+  let card = getCard(product);
+  as_2.append(card);
+});
+products.slice(3, 7).map((product) => {
+  let card = getCard(product);
+  as_3.append(card);
+});
+products.slice(-4).map((product) => {
+  let card = getCard(product);
+  as_4.append(card);
+});
+products.slice(15, 19).map((product) => {
+  let card = getCard(product);
+  as_5.append(card);
+});
+products.slice(25, 29).map((product) => {
+  let card = getCard(product);
+  as_6.append(card);
+});
+products.slice(1, 5).map((product) => {
+  let card = getCard(product);
+  as_7.append(card);
+});
+products
+  .toSorted((a, b) => b.rating - a.rating)
+  .slice(0, 4)
+  .map((product) => {
+    let card = getCard(product);
+    sell_cards3.append(card);
+  });
+
+  
